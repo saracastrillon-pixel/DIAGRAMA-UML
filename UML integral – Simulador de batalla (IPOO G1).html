@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UML integral – Simulador de batalla (IPOO G1)</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:#fbfbf8;color:#1d2430;font:16px/1.55 Georgia,"Times New Roman",serif;padding:20px}
+h1{font-size:1.5rem;margin:0 0 4px}
+p{color:#5b6575;max-width:70ch;margin:0 0 14px}
+.leg{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 12px;font-family:system-ui,sans-serif;font-size:.9rem}
+.leg span::before{content:"";display:inline-block;width:14px;height:14px;margin-right:6px;vertical-align:-2px;border:1px solid #888}
+.a::before{background:#d9f2d9}.b::before{background:#e6dcf7}
+.zoom{display:flex;gap:8px;margin:0 0 10px;font-family:system-ui,sans-serif}
+.zoom button{border:1px solid #c9ced8;background:#fff;color:#1d2430;padding:6px 14px;border-radius:6px;font-size:1rem;cursor:pointer}
+.wrap{overflow:auto;border:1px solid #d5d9e0;background:#fff;padding:12px;max-height:82vh}
+</style></head><body>
+<h1>UML integral del simulador de batalla</h1>
+<p>Lab 4 (implementado) y resto del proyecto final (modelado). Rombo lleno = composici&oacute;n; rombo vac&iacute;o = agregaci&oacute;n; flecha punteada = dependencia; tri&aacute;ngulo vac&iacute;o = herencia.</p>
+<div class="leg"><span class="a">Subsistema Lab 4</span><span class="b">Clases nuevas del proyecto</span></div>
+<div class="zoom"><button id="zm" aria-label="Alejar">&minus;</button><button id="zp" aria-label="Acercar">+</button><button id="zf">Ajustar al ancho</button><button id="z1">Tama&ntilde;o original</button></div>
+<div class="wrap" id="wrap">
+<svg id="uml" xmlns="http://www.w3.org/2000/svg" viewBox="0.00 0.00 1621.27 1079.16" style="width:1621px;height:auto;max-width:none;display:block" role="img" aria-label="Diagrama de clases UML">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1075.16)">
+<title>UML</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-1075.16 1617.27,-1075.16 1617.27,4 -4,4"/>
+<g id="node1" class="node">
+<title>Entidad</title>
+<polygon fill="#d9f2d9" stroke="transparent" points="478.5,-698 478.5,-868 748.5,-868 748.5,-698 478.5,-698"/>
+<text text-anchor="start" x="590" y="-855.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">Entidad</text>
+<text text-anchor="start" x="483.5" y="-834.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;vida_ : int</text>
+<text text-anchor="start" x="483.5" y="-822.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;constitucion_ : int</text>
+<text text-anchor="start" x="483.5" y="-810.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;resistencia_ : int</text>
+<text text-anchor="start" x="483.5" y="-798.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;movilidadBase_ : int</text>
+<text text-anchor="start" x="483.5" y="-778.2" font-family="Helvetica,sans-Serif" font-size="11.00">+equipar(zona, Armadura*) : ResultadoEquipar</text>
+<text text-anchor="start" x="483.5" y="-766.2" font-family="Helvetica,sans-Serif" font-size="11.00">+retirar(zona) : Armadura*</text>
+<text text-anchor="start" x="483.5" y="-754.2" font-family="Helvetica,sans-Serif" font-size="11.00">+estado() : Estado</text>
+<text text-anchor="start" x="483.5" y="-742.2" font-family="Helvetica,sans-Serif" font-size="11.00">+recibirImpacto(zona, bruto) : int</text>
+<text text-anchor="start" x="483.5" y="-730.2" font-family="Helvetica,sans-Serif" font-size="11.00">+estaDerrotada() : bool</text>
+<text text-anchor="start" x="483.5" y="-718.2" font-family="Helvetica,sans-Serif" font-size="11.00">+armaActiva() : Arma*</text>
+<text text-anchor="start" x="483.5" y="-706.2" font-family="Helvetica,sans-Serif" font-size="11.00">+cambiarArma(i) : bool</text>
+<polygon fill="#2e7d32" stroke="#2e7d32" points="478.5,-847 478.5,-847 748.5,-847 748.5,-847 478.5,-847"/>
+<polygon fill="#2e7d32" stroke="#2e7d32" points="478.5,-791 478.5,-791 748.5,-791 748.5,-791 478.5,-791"/>
+<polygon fill="none" stroke="#2e7d32" points="478.5,-698 478.5,-868 748.5,-868 748.5,-698 478.5,-698"/>
+</g>
+<g id="node2" class="node">
+<title>Cuerpo</title>
+<polygon fill="#d9f2d9" stroke="transparent" points="315.5,-512 315.5,-598 463.5,-598 463.5,-512 315.5,-512"/>
+<text text-anchor="start" x="367.5" y="-585.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">Cuerpo</text>
+<text text-anchor="start" x="320.5" y="-564.2" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<text text-anchor="start" x="320.5" y="-544.2" font-family="Helvetica,sans-Serif" font-size="11.00">+zona(i) : ParteCuerpo*</text>
+<text text-anchor="start" x="320.5" y="-532.2" font-family="Helvetica,sans-Serif" font-size="11.00">+proteccionTotal() : int</text>
+<text text-anchor="start" x="320.5" y="-520.2" font-family="Helvetica,sans-Serif" font-size="11.00">+penalizacionTotal() : int</text>
+<polygon fill="#2e7d32" stroke="#2e7d32" points="315.5,-577 315.5,-577 463.5,-577 463.5,-577 315.5,-577"/>
+<polygon fill="#2e7d32" stroke="#2e7d32" points="315.5,-557 315.5,-557 463.5,-557 463.5,-557 315.5,-557"/>
+<polygon fill="none" stroke="#2e7d32" points="315.5,-512 315.5,-598 463.5,-598 463.5,-512 315.5,-512"/>
+</g>
+<g id="edge4" class="edge">
+<title>Entidad&#45;&gt;Cuerpo</title>
+<path fill="none" stroke="#333333" d="M521.33,-689C490.02,-657.42 456.58,-623.68 431.22,-598.09"/>
+<polygon fill="#333333" stroke="#333333" points="521.64,-689.32 528.71,-690.77 530.09,-697.85 523.03,-696.4 521.64,-689.32"/>
+<text text-anchor="middle" x="448.11" y="-601.82" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
+<text text-anchor="middle" x="513.2" y="-689.11" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
+</g>
+<g id="node13" class="node">
+<title>Arma</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="504,-489 504,-621 629,-621 629,-489 504,-489"/>
+<text text-anchor="start" x="537" y="-608.2" font-family="Helvetica,sans-Serif" font-style="italic" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="550.5" y="-597.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">Arma</text>
+<text text-anchor="start" x="509.5" y="-577.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;durabilidad_ : int</text>
+<text text-anchor="start" x="509.5" y="-565.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;ataque_ : int</text>
+<text text-anchor="start" x="509.5" y="-553.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;velocidad_ : int</text>
+<text text-anchor="start" x="509.5" y="-541.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;peso_ : int</text>
+<text text-anchor="start" x="509.5" y="-521.2" font-family="Helvetica,sans-Serif" font-size="11.00">+calcularDano() : int</text>
+<text text-anchor="start" x="509.5" y="-509.2" font-family="Helvetica,sans-Serif" font-size="11.00">+desgastar(n) : bool</text>
+<text text-anchor="start" x="509.5" y="-497.2" font-family="Helvetica,sans-Serif" font-size="11.00">+estaRota() : bool</text>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="504.5,-590 504.5,-590 629.5,-590 629.5,-590 504.5,-590"/>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="504.5,-534 504.5,-534 629.5,-534 629.5,-534 504.5,-534"/>
+<polygon fill="none" stroke="#6a4bb5" points="504,-489 504,-621 629,-621 629,-489 504,-489"/>
+</g>
+<g id="edge7" class="edge">
+<title>Entidad&#45;&gt;Arma</title>
+<path fill="none" stroke="#333333" d="M593.5,-685.83C588.96,-664.01 584.25,-641.33 580.05,-621.15"/>
+<polygon fill="#333333" stroke="#333333" points="593.56,-686.1 598.69,-691.16 596,-697.85 590.86,-692.79 593.56,-686.1"/>
+<text text-anchor="middle" x="590.82" y="-633.07" font-family="Helvetica,sans-Serif" font-size="10.00">1..*</text>
+<text text-anchor="middle" x="585.23" y="-680.92" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
+</g>
+<g id="node17" class="node">
+<title>Controlador</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="752.5,-519 752.5,-591 994.5,-591 994.5,-519 752.5,-519"/>
+<text text-anchor="start" x="843.5" y="-578.2" font-family="Helvetica,sans-Serif" font-style="italic" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="837" y="-567.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">Controlador</text>
+<text text-anchor="start" x="757.5" y="-547.2" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<text text-anchor="start" x="757.5" y="-527.2" font-family="Helvetica,sans-Serif" font-size="11.00">+elegirAccion(propia, oponente) : Accion*</text>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="752.5,-560 752.5,-560 994.5,-560 994.5,-560 752.5,-560"/>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="752.5,-540 752.5,-540 994.5,-540 994.5,-540 752.5,-540"/>
+<polygon fill="none" stroke="#6a4bb5" points="752.5,-519 752.5,-591 994.5,-591 994.5,-519 752.5,-519"/>
+</g>
+<g id="edge8" class="edge">
+<title>Entidad&#45;&gt;Controlador</title>
+<path fill="none" stroke="#333333" d="M719.59,-689.78C759.55,-655.05 802.63,-617.6 833.03,-591.18"/>
+<polygon fill="none" stroke="#333333" points="719.37,-689.97 717.47,-696.93 710.31,-697.85 712.22,-690.89 719.37,-689.97"/>
+<text text-anchor="middle" x="825.7" y="-605.12" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
+<text text-anchor="middle" x="717.64" y="-678.9" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
+</g>
+<g id="node3" class="node">
+<title>ParteCuerpo</title>
+<polygon fill="#d9f2d9" stroke="transparent" points="122.5,-300 122.5,-422 376.5,-422 376.5,-300 122.5,-300"/>
+<text text-anchor="start" x="211" y="-409.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">ParteCuerpo</text>
+<text text-anchor="start" x="127.5" y="-388.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;nombre_ : string</text>
+<text text-anchor="start" x="127.5" y="-376.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;cobertura_ : int</text>
+<text text-anchor="start" x="127.5" y="-356.2" font-family="Helvetica,sans-Serif" font-size="11.00">+equipar(a, desplazada) : ResultadoEquipar</text>
+<text text-anchor="start" x="127.5" y="-344.2" font-family="Helvetica,sans-Serif" font-size="11.00">+retirar() : Armadura*</text>
+<text text-anchor="start" x="127.5" y="-332.2" font-family="Helvetica,sans-Serif" font-size="11.00">+proteccion() : int</text>
+<text text-anchor="start" x="127.5" y="-320.2" font-family="Helvetica,sans-Serif" font-size="11.00">+penalizacion() : int</text>
+<text text-anchor="start" x="127.5" y="-308.2" font-family="Helvetica,sans-Serif" font-size="11.00">+recibirImpacto(dano) : int</text>
+<polygon fill="#2e7d32" stroke="#2e7d32" points="122.5,-401 122.5,-401 376.5,-401 376.5,-401 122.5,-401"/>
+<polygon fill="#2e7d32" stroke="#2e7d32" points="122.5,-369 122.5,-369 376.5,-369 376.5,-369 122.5,-369"/>
+<polygon fill="none" stroke="#2e7d32" points="122.5,-300 122.5,-422 376.5,-422 376.5,-300 122.5,-300"/>
+</g>
+<g id="edge5" class="edge">
+<title>Cuerpo&#45;&gt;ParteCuerpo</title>
+<path fill="none" stroke="#333333" d="M351.58,-501.99C333.63,-477.38 312.09,-447.84 293.43,-422.25"/>
+<polygon fill="#333333" stroke="#333333" points="351.71,-502.17 358.47,-504.66 358.78,-511.86 352.01,-509.37 351.71,-502.17"/>
+<text text-anchor="middle" x="309.19" y="-428.45" font-family="Helvetica,sans-Serif" font-size="10.00">5</text>
+<text text-anchor="middle" x="343.02" y="-500.67" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
+</g>
+<g id="node4" class="node">
+<title>Armadura</title>
+<polygon fill="#d9f2d9" stroke="transparent" points="153,-89 153,-233 346,-233 346,-89 153,-89"/>
+<text text-anchor="start" x="220" y="-220.2" font-family="Helvetica,sans-Serif" font-style="italic" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="219.5" y="-209.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">Armadura</text>
+<text text-anchor="start" x="158.5" y="-189.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;absorcionBase_ : int</text>
+<text text-anchor="start" x="158.5" y="-177.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;penalizacion_ : int</text>
+<text text-anchor="start" x="158.5" y="-165.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;durabilidad_ : int</text>
+<text text-anchor="start" x="158.5" y="-153.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;durabilidadMax_ : int</text>
+<text text-anchor="start" x="158.5" y="-133.2" font-family="Helvetica,sans-Serif" font-size="11.00">+recibirImpacto(dano) : int</text>
+<text text-anchor="start" x="158.5" y="-121.2" font-family="Helvetica,sans-Serif" font-size="11.00">+absorcionEfectiva() : int</text>
+<text text-anchor="start" x="158.5" y="-109.2" font-family="Helvetica,sans-Serif" font-size="11.00">+familia() : string</text>
+<text text-anchor="start" x="158.5" y="-97.2" font-family="Helvetica,sans-Serif" font-size="11.00">#desgastePorImpacto(dano) : int</text>
+<polygon fill="#2e7d32" stroke="#2e7d32" points="153.5,-202 153.5,-202 346.5,-202 346.5,-202 153.5,-202"/>
+<polygon fill="#2e7d32" stroke="#2e7d32" points="153.5,-146 153.5,-146 346.5,-146 346.5,-146 153.5,-146"/>
+<polygon fill="none" stroke="#2e7d32" points="153,-89 153,-233 346,-233 346,-89 153,-89"/>
+</g>
+<g id="edge6" class="edge">
+<title>ParteCuerpo&#45;&gt;Armadura</title>
+<path fill="none" stroke="#333333" d="M249.5,-287.69C249.5,-269.87 249.5,-250.82 249.5,-233.06"/>
+<polygon fill="none" stroke="#333333" points="249.5,-287.79 253.5,-293.79 249.5,-299.79 245.5,-293.79 249.5,-287.79"/>
+<text text-anchor="middle" x="257.11" y="-246.88" font-family="Helvetica,sans-Serif" font-size="10.00">0..1</text>
+<text text-anchor="middle" x="241.89" y="-280.97" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
+</g>
+<g id="node9" class="node">
+<title>ResultadoEquipar</title>
+<polygon fill="#d9f2d9" stroke="transparent" points="380,-936 380,-1044 511,-1044 511,-936 380,-936"/>
+<text text-anchor="start" x="404" y="-1031.2" font-family="Helvetica,sans-Serif" font-style="italic" font-size="11.00">«enumeration»</text>
+<text text-anchor="start" x="391.5" y="-1020.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">ResultadoEquipar</text>
+<text text-anchor="start" x="385.5" y="-1000.2" font-family="Helvetica,sans-Serif" font-size="11.00">EQ_OK</text>
+<text text-anchor="start" x="385.5" y="-988.2" font-family="Helvetica,sans-Serif" font-size="11.00">EQ_ARMADURA_NULA</text>
+<text text-anchor="start" x="385.5" y="-976.2" font-family="Helvetica,sans-Serif" font-size="11.00">EQ_YA_EQUIPADA</text>
+<text text-anchor="start" x="385.5" y="-964.2" font-family="Helvetica,sans-Serif" font-size="11.00">EQ_ROTA</text>
+<text text-anchor="start" x="385.5" y="-944.2" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<polygon fill="#2e7d32" stroke="#2e7d32" points="380.5,-1013 380.5,-1013 511.5,-1013 511.5,-1013 380.5,-1013"/>
+<polygon fill="#2e7d32" stroke="#2e7d32" points="380.5,-957 380.5,-957 511.5,-957 511.5,-957 380.5,-957"/>
+<polygon fill="none" stroke="#2e7d32" points="380,-936 380,-1044 511,-1044 511,-936 380,-936"/>
+</g>
+<g id="edge24" class="edge">
+<title>ParteCuerpo&#45;&gt;ResultadoEquipar</title>
+<path fill="none" stroke="#333333" stroke-dasharray="5,2" d="M257.85,-422.16C265.97,-475.14 279.95,-554.07 299.5,-621 331.68,-731.18 384.01,-854.22 416.5,-926.44"/>
+<polygon fill="#333333" stroke="#333333" points="420.75,-935.86 412.54,-928.6 418.7,-931.3 416.64,-926.75 416.64,-926.75 416.64,-926.75 418.7,-931.3 420.74,-924.89 420.75,-935.86 420.75,-935.86"/>
+</g>
+<g id="node5" class="node">
+<title>ArmaduraTela</title>
+<polygon fill="#d9f2d9" stroke="transparent" points="0,0 0,-22 95,-22 95,0 0,0"/>
+<text text-anchor="start" x="5.5" y="-9.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">ArmaduraTela</text>
+<polygon fill="none" stroke="#2e7d32" points="0,0 0,-22 95,-22 95,0 0,0"/>
+</g>
+<g id="edge10" class="edge">
+<title>Armadura&#45;&gt;ArmaduraTela</title>
+<path fill="none" stroke="#333333" d="M144.52,-83.08C111.41,-58.82 78.87,-34.98 61.17,-22.01"/>
+<polygon fill="none" stroke="#333333" points="142.8,-86.16 152.94,-89.25 146.94,-80.52 142.8,-86.16"/>
+</g>
+<g id="node6" class="node">
+<title>ArmaduraCuero</title>
+<polygon fill="#d9f2d9" stroke="transparent" points="127,0 127,-22 234,-22 234,0 127,0"/>
+<text text-anchor="start" x="132.5" y="-9.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">ArmaduraCuero</text>
+<polygon fill="none" stroke="#2e7d32" points="127,0 127,-22 234,-22 234,0 127,0"/>
+</g>
+<g id="edge11" class="edge">
+<title>Armadura&#45;&gt;ArmaduraCuero</title>
+<path fill="none" stroke="#333333" d="M211.95,-79.46C201.27,-56.55 190.99,-34.49 185.23,-22.14"/>
+<polygon fill="none" stroke="#333333" points="208.81,-81.02 216.21,-88.6 215.16,-78.06 208.81,-81.02"/>
+</g>
+<g id="node7" class="node">
+<title>ArmaduraMalla</title>
+<polygon fill="#d9f2d9" stroke="transparent" points="266.5,0 266.5,-22 370.5,-22 370.5,0 266.5,0"/>
+<text text-anchor="start" x="271.5" y="-9.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">ArmaduraMalla</text>
+<polygon fill="none" stroke="#2e7d32" points="266.5,0 266.5,-22 370.5,-22 370.5,0 266.5,0"/>
+</g>
+<g id="edge12" class="edge">
+<title>Armadura&#45;&gt;ArmaduraMalla</title>
+<path fill="none" stroke="#333333" d="M287.05,-79.46C297.73,-56.55 308.01,-34.49 313.77,-22.14"/>
+<polygon fill="none" stroke="#333333" points="283.84,-78.06 282.79,-88.6 290.19,-81.02 283.84,-78.06"/>
+</g>
+<g id="node8" class="node">
+<title>ArmaduraPlacas</title>
+<polygon fill="#d9f2d9" stroke="transparent" points="403,0 403,-22 514,-22 514,0 403,0"/>
+<text text-anchor="start" x="408.5" y="-9.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">ArmaduraPlacas</text>
+<polygon fill="none" stroke="#2e7d32" points="403,0 403,-22 514,-22 514,0 403,0"/>
+</g>
+<g id="edge13" class="edge">
+<title>Armadura&#45;&gt;ArmaduraPlacas</title>
+<path fill="none" stroke="#333333" d="M354.54,-85.62C389.88,-60.59 425.14,-35.62 444.15,-22.16"/>
+<polygon fill="none" stroke="#333333" points="352.19,-83 346.05,-91.63 356.23,-88.71 352.19,-83"/>
+</g>
+<g id="node10" class="node">
+<title>Batalla</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="616.5,-947 616.5,-1033 758.5,-1033 758.5,-947 616.5,-947"/>
+<text text-anchor="start" x="665.5" y="-1020.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">Batalla</text>
+<text text-anchor="start" x="621.5" y="-999.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;ronda_ : int</text>
+<text text-anchor="start" x="621.5" y="-979.2" font-family="Helvetica,sans-Serif" font-size="11.00">+iniciar() : void</text>
+<text text-anchor="start" x="621.5" y="-967.2" font-family="Helvetica,sans-Serif" font-size="11.00">+avanzarRonda() : void</text>
+<text text-anchor="start" x="621.5" y="-955.2" font-family="Helvetica,sans-Serif" font-size="11.00">+hayGanador() : bool</text>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="616.5,-1012 616.5,-1012 758.5,-1012 758.5,-1012 616.5,-1012"/>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="616.5,-992 616.5,-992 758.5,-992 758.5,-992 616.5,-992"/>
+<polygon fill="none" stroke="#6a4bb5" points="616.5,-947 616.5,-1033 758.5,-1033 758.5,-947 616.5,-947"/>
+</g>
+<g id="edge3" class="edge">
+<title>Batalla&#45;&gt;Entidad</title>
+<path fill="none" stroke="#333333" d="M668.09,-935.22C660.7,-914.75 652.09,-890.91 643.93,-868.29"/>
+<polygon fill="none" stroke="#333333" points="668.09,-935.24 673.89,-939.52 672.17,-946.52 666.37,-942.24 668.09,-935.24"/>
+<text text-anchor="middle" x="656.62" y="-878.56" font-family="Helvetica,sans-Serif" font-size="10.00">2</text>
+</g>
+<g id="node11" class="node">
+<title>Ronda</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="784,-746 784,-820 957,-820 957,-746 784,-746"/>
+<text text-anchor="start" x="851.5" y="-807.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">Ronda</text>
+<text text-anchor="start" x="789.5" y="-786.2" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<text text-anchor="start" x="789.5" y="-766.2" font-family="Helvetica,sans-Serif" font-size="11.00">+ordenarPorIniciativa() : void</text>
+<text text-anchor="start" x="789.5" y="-754.2" font-family="Helvetica,sans-Serif" font-size="11.00">+ejecutar() : void</text>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="784.5,-799 784.5,-799 957.5,-799 957.5,-799 784.5,-799"/>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="784.5,-779 784.5,-779 957.5,-779 957.5,-779 784.5,-779"/>
+<polygon fill="none" stroke="#6a4bb5" points="784,-746 784,-820 957,-820 957,-746 784,-746"/>
+</g>
+<g id="edge1" class="edge">
+<title>Batalla&#45;&gt;Ronda</title>
+<path fill="none" stroke="#333333" d="M733.47,-937.5C766.09,-900.96 809.08,-852.81 838.14,-820.26"/>
+<polygon fill="#333333" stroke="#333333" points="733.41,-937.57 732.4,-944.71 725.42,-946.52 726.43,-939.38 733.41,-937.57"/>
+<text text-anchor="middle" x="832.95" y="-834.99" font-family="Helvetica,sans-Serif" font-size="10.00">1..*</text>
+<text text-anchor="middle" x="730.61" y="-926.79" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
+</g>
+<g id="node26" class="node">
+<title>ReglasCombate</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="822.5,-947 822.5,-1033 1028.5,-1033 1028.5,-947 822.5,-947"/>
+<text text-anchor="start" x="877" y="-1020.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">ReglasCombate</text>
+<text text-anchor="start" x="827.5" y="-999.2" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<text text-anchor="start" x="827.5" y="-979.2" font-family="Helvetica,sans-Serif" font-size="11.00">+iniciativa(e) : int</text>
+<text text-anchor="start" x="827.5" y="-967.2" font-family="Helvetica,sans-Serif" font-size="11.00">+probAcierto(arma, parte) : double</text>
+<text text-anchor="start" x="827.5" y="-955.2" font-family="Helvetica,sans-Serif" font-size="11.00">+danoFinal(bruto, mitigacion) : int</text>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="822.5,-1012 822.5,-1012 1028.5,-1012 1028.5,-1012 822.5,-1012"/>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="822.5,-992 822.5,-992 1028.5,-992 1028.5,-992 822.5,-992"/>
+<polygon fill="none" stroke="#6a4bb5" points="822.5,-947 822.5,-1033 1028.5,-1033 1028.5,-947 822.5,-947"/>
+</g>
+<g id="edge25" class="edge">
+<title>Batalla&#45;&gt;ReglasCombate</title>
+<path fill="none" stroke="#333333" stroke-dasharray="5,2" d="M758.62,-990C776.33,-990 794.04,-990 811.75,-990"/>
+<polygon fill="#333333" stroke="#333333" points="822.18,-990 812.18,-994.5 817.18,-990 812.18,-990 812.18,-990 812.18,-990 817.18,-990 812.18,-985.5 822.18,-990 822.18,-990"/>
+</g>
+<g id="node27" class="node">
+<title>GeneradorAleatorio</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="1061,-959 1061,-1021 1192,-1021 1192,-959 1061,-959"/>
+<text text-anchor="start" x="1066.5" y="-1008.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">GeneradorAleatorio</text>
+<text text-anchor="start" x="1066.5" y="-987.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;semilla_ : unsigned</text>
+<text text-anchor="start" x="1066.5" y="-967.2" font-family="Helvetica,sans-Serif" font-size="11.00">+tirada(prob) : bool</text>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="1061.5,-1000 1061.5,-1000 1192.5,-1000 1192.5,-1000 1061.5,-1000"/>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="1061.5,-980 1061.5,-980 1192.5,-980 1192.5,-980 1061.5,-980"/>
+<polygon fill="none" stroke="#6a4bb5" points="1061,-959 1061,-1021 1192,-1021 1192,-959 1061,-959"/>
+</g>
+<g id="edge26" class="edge">
+<title>Batalla&#45;&gt;GeneradorAleatorio</title>
+<path fill="none" stroke="#333333" stroke-dasharray="5,2" d="M753.23,-1033C774.46,-1044.61 798.69,-1055.58 822.5,-1061.5 866.93,-1072.54 984.98,-1075.69 1028.5,-1061.5 1049.67,-1054.6 1070.06,-1041.21 1086.71,-1027.86"/>
+<polygon fill="#333333" stroke="#333333" points="1094.57,-1021.34 1089.75,-1031.19 1090.72,-1024.53 1086.88,-1027.73 1086.88,-1027.73 1086.88,-1027.73 1090.72,-1024.53 1084,-1024.26 1094.57,-1021.34 1094.57,-1021.34"/>
+</g>
+<g id="node28" class="node">
+<title>Traza</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="1224,-959 1224,-1021 1339,-1021 1339,-959 1224,-959"/>
+<text text-anchor="start" x="1265" y="-1008.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">Traza</text>
+<text text-anchor="start" x="1229.5" y="-987.2" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<text text-anchor="start" x="1229.5" y="-967.2" font-family="Helvetica,sans-Serif" font-size="11.00">+registrar(r) : void</text>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="1224.5,-1000 1224.5,-1000 1339.5,-1000 1339.5,-1000 1224.5,-1000"/>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="1224.5,-980 1224.5,-980 1339.5,-980 1339.5,-980 1224.5,-980"/>
+<polygon fill="none" stroke="#6a4bb5" points="1224,-959 1224,-1021 1339,-1021 1339,-959 1224,-959"/>
+</g>
+<g id="edge27" class="edge">
+<title>Batalla&#45;&gt;Traza</title>
+<path fill="none" stroke="#333333" stroke-dasharray="5,2" d="M753.23,-1033C774.46,-1044.61 798.69,-1055.58 822.5,-1061.5 862.29,-1071.39 1152.79,-1075.01 1191.5,-1061.5 1211.24,-1054.61 1229.89,-1041.39 1245.04,-1028.18"/>
+<polygon fill="#333333" stroke="#333333" points="1252.63,-1021.3 1248.24,-1031.35 1248.93,-1024.65 1245.22,-1028.01 1245.22,-1028.01 1245.22,-1028.01 1248.93,-1024.65 1242.2,-1024.68 1252.63,-1021.3 1252.63,-1021.3"/>
+</g>
+<g id="node12" class="node">
+<title>Turno</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="1027.5,-524 1027.5,-586 1205.5,-586 1205.5,-524 1027.5,-524"/>
+<text text-anchor="start" x="1099.5" y="-573.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">Turno</text>
+<text text-anchor="start" x="1032.5" y="-552.2" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<text text-anchor="start" x="1032.5" y="-532.2" font-family="Helvetica,sans-Serif" font-size="11.00">+resolver() : ResultadoEvento</text>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="1027.5,-565 1027.5,-565 1205.5,-565 1205.5,-565 1027.5,-565"/>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="1027.5,-545 1027.5,-545 1205.5,-545 1205.5,-545 1027.5,-545"/>
+<polygon fill="none" stroke="#6a4bb5" points="1027.5,-524 1027.5,-586 1205.5,-586 1205.5,-524 1027.5,-524"/>
+</g>
+<g id="edge2" class="edge">
+<title>Ronda&#45;&gt;Turno</title>
+<path fill="none" stroke="#333333" d="M883.87,-734.33C893.42,-707.75 908.67,-675.74 931.5,-654 959.06,-627.76 976.62,-638.33 1010.5,-621 1030.87,-610.58 1052.55,-597.64 1070.95,-586.06"/>
+<polygon fill="#333333" stroke="#333333" points="883.86,-734.35 885.72,-741.32 880.01,-745.72 878.15,-738.75 883.86,-734.35"/>
+<text text-anchor="middle" x="1061.15" y="-598.66" font-family="Helvetica,sans-Serif" font-size="10.00">2</text>
+<text text-anchor="middle" x="878.05" y="-725.32" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
+</g>
+<g id="edge28" class="edge">
+<title>Ronda&#45;&gt;ReglasCombate</title>
+<path fill="none" stroke="#333333" stroke-dasharray="5,2" d="M847.02,-820.1C834.66,-843.85 824.19,-875.34 835.5,-902 841.29,-915.65 850.39,-928.21 860.63,-939.29"/>
+<polygon fill="#333333" stroke="#333333" points="867.86,-946.71 857.66,-942.69 864.37,-943.13 860.88,-939.55 860.88,-939.55 860.88,-939.55 864.37,-943.13 864.11,-936.41 867.86,-946.71 867.86,-946.71"/>
+</g>
+<g id="node20" class="node">
+<title>Accion</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="1168.5,-325 1168.5,-397 1434.5,-397 1434.5,-325 1168.5,-325"/>
+<text text-anchor="start" x="1271.5" y="-384.2" font-family="Helvetica,sans-Serif" font-style="italic" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="1281" y="-373.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">Accion</text>
+<text text-anchor="start" x="1173.5" y="-353.2" font-family="Helvetica,sans-Serif" font-size="11.00"> </text>
+<text text-anchor="start" x="1173.5" y="-333.2" font-family="Helvetica,sans-Serif" font-size="11.00">+ejecutar(actor, oponente) : ResultadoEvento</text>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="1168.5,-366 1168.5,-366 1434.5,-366 1434.5,-366 1168.5,-366"/>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="1168.5,-346 1168.5,-346 1434.5,-346 1434.5,-346 1168.5,-346"/>
+<polygon fill="none" stroke="#6a4bb5" points="1168.5,-325 1168.5,-397 1434.5,-397 1434.5,-325 1168.5,-325"/>
+</g>
+<g id="edge9" class="edge">
+<title>Turno&#45;&gt;Accion</title>
+<path fill="none" stroke="#333333" d="M1119.51,-523.65C1122.91,-502.57 1130.15,-474.82 1145.5,-455 1162.11,-433.56 1185.17,-416.03 1208.47,-402.2"/>
+<polygon fill="#333333" stroke="#333333" points="1217.39,-397.08 1210.96,-405.96 1213.06,-399.57 1208.72,-402.05 1208.72,-402.05 1208.72,-402.05 1213.06,-399.57 1206.48,-398.15 1217.39,-397.08 1217.39,-397.08"/>
+<text text-anchor="middle" x="1207.03" y="-409.29" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
+<text text-anchor="middle" x="1114.83" y="-503.77" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
+</g>
+<g id="edge29" class="edge">
+<title>Turno&#45;&gt;Traza</title>
+<path fill="none" stroke="#333333" stroke-dasharray="5,2" d="M1122.03,-586.39C1134.02,-648.17 1165.74,-791.9 1219.5,-902 1227.73,-918.86 1239.14,-935.98 1249.92,-950.52"/>
+<polygon fill="#333333" stroke="#333333" points="1256.17,-958.76 1246.55,-953.51 1253.15,-954.78 1250.13,-950.79 1250.13,-950.79 1250.13,-950.79 1253.15,-954.78 1253.72,-948.07 1256.17,-958.76 1256.17,-958.76"/>
+</g>
+<g id="node14" class="node">
+<title>ArmaEspada</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="409,-350 409,-372 496,-372 496,-350 409,-350"/>
+<text text-anchor="start" x="414.5" y="-359.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">ArmaEspada</text>
+<polygon fill="none" stroke="#6a4bb5" points="409,-350 409,-372 496,-372 496,-350 409,-350"/>
+</g>
+<g id="edge14" class="edge">
+<title>Arma&#45;&gt;ArmaEspada</title>
+<path fill="none" stroke="#333333" d="M522.77,-480.35C498.43,-439.35 470.66,-392.59 458.61,-372.3"/>
+<polygon fill="none" stroke="#333333" points="519.79,-482.19 527.9,-489 525.81,-478.61 519.79,-482.19"/>
+</g>
+<g id="node15" class="node">
+<title>ArmaDaga</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="528.5,-350 528.5,-372 602.5,-372 602.5,-350 528.5,-350"/>
+<text text-anchor="start" x="533.5" y="-359.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">ArmaDaga</text>
+<polygon fill="none" stroke="#6a4bb5" points="528.5,-350 528.5,-372 602.5,-372 602.5,-350 528.5,-350"/>
+</g>
+<g id="edge15" class="edge">
+<title>Arma&#45;&gt;ArmaDaga</title>
+<path fill="none" stroke="#333333" d="M566.11,-478.8C565.9,-438.18 565.66,-392.34 565.55,-372.3"/>
+<polygon fill="none" stroke="#333333" points="562.61,-479.02 566.16,-489 569.61,-478.98 562.61,-479.02"/>
+</g>
+<g id="node16" class="node">
+<title>ArmaMaza</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="634.5,-350 634.5,-372 710.5,-372 710.5,-350 634.5,-350"/>
+<text text-anchor="start" x="639.5" y="-359.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">ArmaMaza</text>
+<polygon fill="none" stroke="#6a4bb5" points="634.5,-350 634.5,-372 710.5,-372 710.5,-350 634.5,-350"/>
+</g>
+<g id="edge16" class="edge">
+<title>Arma&#45;&gt;ArmaMaza</title>
+<path fill="none" stroke="#333333" d="M607.3,-480.09C629.91,-439.15 655.63,-392.55 666.82,-372.3"/>
+<polygon fill="none" stroke="#333333" points="604.16,-478.55 602.39,-489 610.28,-481.93 604.16,-478.55"/>
+</g>
+<g id="node18" class="node">
+<title>ControladorJugador</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="808.5,-350 808.5,-372 938.5,-372 938.5,-350 808.5,-350"/>
+<text text-anchor="start" x="813.5" y="-359.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">ControladorJugador</text>
+<polygon fill="none" stroke="#6a4bb5" points="808.5,-350 808.5,-372 938.5,-372 938.5,-350 808.5,-350"/>
+</g>
+<g id="edge17" class="edge">
+<title>Controlador&#45;&gt;ControladorJugador</title>
+<path fill="none" stroke="#333333" d="M873.5,-508.63C873.5,-463.4 873.5,-397.17 873.5,-372.11"/>
+<polygon fill="none" stroke="#333333" points="870,-508.78 873.5,-518.78 877,-508.78 870,-508.78"/>
+</g>
+<g id="node19" class="node">
+<title>ControladorComputadora</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="970.5,-350 970.5,-372 1136.5,-372 1136.5,-350 970.5,-350"/>
+<text text-anchor="start" x="975.5" y="-359.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">ControladorComputadora</text>
+<polygon fill="none" stroke="#6a4bb5" points="970.5,-350 970.5,-372 1136.5,-372 1136.5,-350 970.5,-350"/>
+</g>
+<g id="edge18" class="edge">
+<title>Controlador&#45;&gt;ControladorComputadora</title>
+<path fill="none" stroke="#333333" d="M913.39,-511.45C955.81,-466.2 1020.04,-397.69 1044.02,-372.11"/>
+<polygon fill="none" stroke="#333333" points="910.8,-509.1 906.51,-518.78 915.91,-513.88 910.8,-509.1"/>
+</g>
+<g id="edge33" class="edge">
+<title>ControladorComputadora&#45;&gt;GeneradorAleatorio</title>
+<path fill="none" stroke="#333333" stroke-dasharray="5,2" d="M1070.58,-372.16C1109.96,-395.98 1205.05,-455.94 1221.5,-489 1247.64,-541.52 1258.97,-575.86 1221.5,-621 1170.67,-682.24 1098.3,-594.45 1045.5,-654 1029.69,-671.83 1037.01,-844.82 1031.5,-868 1027.72,-883.9 1010.41,-887.27 1017.5,-902 1023.87,-915.23 1048.67,-935.45 1073.01,-953.07"/>
+<polygon fill="#333333" stroke="#333333" points="1081.22,-958.93 1070.46,-956.79 1077.15,-956.03 1073.08,-953.12 1073.08,-953.12 1073.08,-953.12 1077.15,-956.03 1075.69,-949.46 1081.22,-958.93 1081.22,-958.93"/>
+</g>
+<g id="node21" class="node">
+<title>AccionAtacar</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="1030.5,-150 1030.5,-172 1122.5,-172 1122.5,-150 1030.5,-150"/>
+<text text-anchor="start" x="1035.5" y="-159.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">AccionAtacar</text>
+<polygon fill="none" stroke="#6a4bb5" points="1030.5,-150 1030.5,-172 1122.5,-172 1122.5,-150 1030.5,-150"/>
+</g>
+<g id="edge19" class="edge">
+<title>Accion&#45;&gt;AccionAtacar</title>
+<path fill="none" stroke="#333333" d="M1242.96,-318.64C1210.9,-294.96 1171.16,-263.88 1138.5,-233 1117.33,-212.99 1095.63,-186.48 1084.37,-172.18"/>
+<polygon fill="none" stroke="#333333" points="1241.23,-321.71 1251.37,-324.81 1245.37,-316.07 1241.23,-321.71"/>
+</g>
+<g id="node22" class="node">
+<title>AccionCambiarArma</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="1154.5,-150 1154.5,-172 1288.5,-172 1288.5,-150 1154.5,-150"/>
+<text text-anchor="start" x="1159.5" y="-159.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">AccionCambiarArma</text>
+<polygon fill="none" stroke="#6a4bb5" points="1154.5,-150 1154.5,-172 1288.5,-172 1288.5,-150 1154.5,-150"/>
+</g>
+<g id="edge20" class="edge">
+<title>Accion&#45;&gt;AccionCambiarArma</title>
+<path fill="none" stroke="#333333" d="M1283.43,-315.28C1264.5,-268.43 1236.09,-198.12 1225.59,-172.13"/>
+<polygon fill="none" stroke="#333333" points="1280.21,-316.64 1287.2,-324.6 1286.7,-314.02 1280.21,-316.64"/>
+</g>
+<g id="node23" class="node">
+<title>AccionPasarTurno</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="1321,-150 1321,-172 1440,-172 1440,-150 1321,-150"/>
+<text text-anchor="start" x="1326.5" y="-159.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">AccionPasarTurno</text>
+<polygon fill="none" stroke="#6a4bb5" points="1321,-150 1321,-172 1440,-172 1440,-150 1321,-150"/>
+</g>
+<g id="edge21" class="edge">
+<title>Accion&#45;&gt;AccionPasarTurno</title>
+<path fill="none" stroke="#333333" d="M1319.34,-315.28C1338.04,-268.43 1366.09,-198.12 1376.46,-172.13"/>
+<polygon fill="none" stroke="#333333" points="1316.08,-314.02 1315.62,-324.6 1322.58,-316.61 1316.08,-314.02"/>
+</g>
+<g id="node24" class="node">
+<title>AccionEspecial</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="1472.5,-145 1472.5,-177 1574.5,-177 1574.5,-145 1472.5,-145"/>
+<text text-anchor="start" x="1493.5" y="-164.2" font-family="Helvetica,sans-Serif" font-style="italic" font-size="11.00">«opcional»</text>
+<text text-anchor="start" x="1477.5" y="-153.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">AccionEspecial</text>
+<polygon fill="none" stroke="#6a4bb5" points="1472.5,-145 1472.5,-177 1574.5,-177 1574.5,-145 1472.5,-145"/>
+</g>
+<g id="edge22" class="edge">
+<title>Accion&#45;&gt;AccionEspecial</title>
+<path fill="none" stroke="#333333" d="M1355.52,-318.52C1385.98,-294.46 1424.27,-263.05 1456.5,-233 1476.09,-214.74 1497.02,-191.97 1510.17,-177.22"/>
+<polygon fill="none" stroke="#333333" points="1353.25,-315.86 1347.55,-324.79 1357.58,-321.36 1353.25,-315.86"/>
+</g>
+<g id="node25" class="node">
+<title>ResultadoEvento</title>
+<polygon fill="#e6dcf7" stroke="transparent" points="1403,-935 1403,-1045 1522,-1045 1522,-935 1403,-935"/>
+<text text-anchor="start" x="1410.5" y="-1032.2" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="11.00">ResultadoEvento</text>
+<text text-anchor="start" x="1408.5" y="-1011.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;acierto_ : bool</text>
+<text text-anchor="start" x="1408.5" y="-999.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;danoBruto_ : int</text>
+<text text-anchor="start" x="1408.5" y="-987.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;absorcion_ : int</text>
+<text text-anchor="start" x="1408.5" y="-975.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;danoFinal_ : int</text>
+<text text-anchor="start" x="1408.5" y="-963.2" font-family="Helvetica,sans-Serif" font-size="11.00">&#45;vidaRestante_ : int</text>
+<text text-anchor="start" x="1408.5" y="-943.2" font-family="Helvetica,sans-Serif" font-size="11.00">+describir() : string</text>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="1403.5,-1024 1403.5,-1024 1522.5,-1024 1522.5,-1024 1403.5,-1024"/>
+<polygon fill="#6a4bb5" stroke="#6a4bb5" points="1403.5,-956 1403.5,-956 1522.5,-956 1522.5,-956 1403.5,-956"/>
+<polygon fill="none" stroke="#6a4bb5" points="1403,-935 1403,-1045 1522,-1045 1522,-935 1403,-935"/>
+</g>
+<g id="edge23" class="edge">
+<title>Accion&#45;&gt;ResultadoEvento</title>
+<path fill="none" stroke="#333333" stroke-dasharray="5,2" d="M1310.56,-397.27C1336.68,-499.02 1412.46,-794.14 1446.09,-925.1"/>
+<polygon fill="#333333" stroke="#333333" points="1448.63,-935 1441.79,-926.43 1447.39,-930.16 1446.15,-925.31 1446.15,-925.31 1446.15,-925.31 1447.39,-930.16 1450.51,-924.19 1448.63,-935 1448.63,-935"/>
+<text text-anchor="middle" x="1398.5" y="-657" font-family="Helvetica,sans-Serif" font-size="10.00">produce</text>
+</g>
+<g id="edge32" class="edge">
+<title>AccionAtacar&#45;&gt;Arma</title>
+<path fill="none" stroke="#333333" stroke-dasharray="5,2" d="M1039.03,-172.06C980.2,-189.47 865.36,-230.25 792.5,-300 747.97,-342.63 765.67,-374.39 726.5,-422 700.99,-453.01 667.34,-482.05 637.49,-504.96"/>
+<polygon fill="#333333" stroke="#333333" points="629.18,-511.25 634.43,-501.62 633.16,-508.23 637.15,-505.21 637.15,-505.21 637.15,-505.21 633.16,-508.23 639.87,-508.8 629.18,-511.25 629.18,-511.25"/>
+</g>
+<g id="edge30" class="edge">
+<title>AccionAtacar&#45;&gt;ReglasCombate</title>
+<path fill="none" stroke="#333333" stroke-dasharray="5,2" d="M1082.3,-172.06C1091.88,-187.73 1112.55,-217.72 1138.5,-233 1260.71,-304.97 1361.36,-189.69 1450.5,-300 1484.58,-342.17 1472.99,-372.66 1450.5,-422 1436.52,-452.67 1251.93,-606.5 1221.5,-621 1144.91,-657.49 1096.52,-597.21 1033.5,-654 960.03,-720.21 1003.99,-774.25 972.5,-868 964.78,-890.97 955.26,-915.99 946.8,-937.29"/>
+<polygon fill="#333333" stroke="#333333" points="943,-946.79 942.54,-935.84 944.86,-942.15 946.72,-937.51 946.72,-937.51 946.72,-937.51 944.86,-942.15 950.89,-939.18 943,-946.79 943,-946.79"/>
+</g>
+<g id="edge31" class="edge">
+<title>AccionAtacar&#45;&gt;GeneradorAleatorio</title>
+<path fill="none" stroke="#333333" stroke-dasharray="5,2" d="M1081.91,-172.23C1091.1,-188.42 1111.42,-219.47 1138.5,-233 1228.01,-277.7 1519.4,-192.71 1587.5,-266 1634.74,-316.84 1607.06,-357.88 1580.5,-422 1527.04,-551.04 1456.65,-545.65 1368.5,-654 1284.6,-757.12 1195.38,-886.46 1152.49,-950.04"/>
+<polygon fill="#333333" stroke="#333333" points="1146.75,-958.57 1148.6,-947.76 1149.54,-954.42 1152.33,-950.27 1152.33,-950.27 1152.33,-950.27 1149.54,-954.42 1156.07,-952.79 1146.75,-958.57 1146.75,-958.57"/>
+</g>
+<g id="edge34" class="edge">
+<title>Traza&#45;&gt;ResultadoEvento</title>
+<path fill="none" stroke="#333333" stroke-dasharray="5,2" d="M1339.12,-990C1356.85,-990 1374.58,-990 1392.3,-990"/>
+<polygon fill="#333333" stroke="#333333" points="1402.74,-990 1392.74,-994.5 1397.74,-990 1392.74,-990 1392.74,-990 1392.74,-990 1397.74,-990 1392.74,-985.5 1402.74,-990 1402.74,-990"/>
+</g>
+</g>
+</svg>
+
+</div>
+<script>
+(function(){
+var s=document.getElementById('uml'),wr=document.getElementById('wrap'),w0=parseFloat(s.style.width),k=1;
+function ap(){s.style.width=(w0*k)+'px'}
+function fit(){k=Math.min(1,(wr.clientWidth-26)/w0);ap()}
+document.getElementById('zp').onclick=function(){k=Math.min(3,k*1.25);ap()};
+document.getElementById('zm').onclick=function(){k=Math.max(.2,k/1.25);ap()};
+document.getElementById('zf').onclick=fit;
+document.getElementById('z1').onclick=function(){k=1;ap()};
+fit();
+})();
+</script></body></html>
